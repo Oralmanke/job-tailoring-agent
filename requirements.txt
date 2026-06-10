@@ -1,0 +1,9 @@
+anthropic
+sentence-transformers
+sqlalchemy
+psycopg2-binary
+fastapi
+uvicorn
+requests
+python-dotenv
+pgvector
