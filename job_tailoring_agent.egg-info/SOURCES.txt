@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+job_tailoring_agent.egg-info/PKG-INFO
+job_tailoring_agent.egg-info/SOURCES.txt
+job_tailoring_agent.egg-info/dependency_links.txt
+job_tailoring_agent.egg-info/top_level.txt
+src/__init__.py
+src/config.py
+src/db/__init__.py
+src/db/database.py
+src/db/models.py
+src/scraper/__init__.py
+src/scraper/adzuna.py
+tests/test_matcher.py
