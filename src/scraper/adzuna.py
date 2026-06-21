@@ -1,7 +1,7 @@
 import requests
 from src.config import settings
 
-#TODO: make parameter that take users title adn pass it to what in get function params. Also with whıch country 
+#TODO: make parameter that take users title adn pass it to what in get function params. Also with whıch country also create class with includes two of scrapers function inherit this one.
 
 
 
@@ -32,5 +32,3 @@ def fetch_adzuna():
         jobs.append(ordered_data)
     
     return jobs
-
-fetch_adzuna()

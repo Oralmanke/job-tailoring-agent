@@ -29,6 +29,5 @@ def fetch_remotive():
 
         jobs.append(ordered_data)
 
-    return jobs
 
-fetch_remotive()
+    return jobs
