@@ -12,7 +12,7 @@ class Job(base):
     company = Column(String)
     description = Column(Text)                       
     location = Column(String)
-    url         = Column(String, unique=True, nullable=False)
+    url = Column(String, unique=True, nullable=False)
     source = Column(String)  
     created     = Column(DateTime)                     
     embedding   = Column(Vector(384), nullable=True)
