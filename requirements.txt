@@ -1,9 +1,31 @@
+# --- LLM providers ---
 anthropic
+openai
+
+# --- Embeddings / matching ---
 sentence-transformers
+pgvector
+
+# --- Database ---
 sqlalchemy
 psycopg2-binary
+
+# --- Web API ---
 fastapi
-uvicorn
+uvicorn[standard]
+
+# --- Scraping / HTTP ---
 requests
+tenacity
+
+# --- Config ---
+pydantic-settings
 python-dotenv
-pgvector
+
+# --- Document conversion / rendering ---
+markitdown[pdf]
+docxtpl
+unidecode
+
+# --- Tests ---
+pytest

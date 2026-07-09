@@ -6,9 +6,37 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: mydb
     ports:
-      - "5433:5432"          
+      - "5433:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data   
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U myuser -d mydb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Inside the compose network the DB is reachable as db:5432.
+      DB_URL: postgresql://myuser:mypassword@db:5432/mydb
+      LLM_PROVIDER: anthropic
+      MODEL_NAME: ${MODEL_NAME:-claude-sonnet-4-6}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ADZUNA_APP_ID: ${ADZUNA_APP_ID:-}
+      ADZUNA_APP_KEY: ${ADZUNA_APP_KEY:-}
+    extra_hosts:
+      # Lets the container reach services on the host (e.g. a local Ollama).
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
 
 volumes:
-  pgdata:                    
+  pgdata:

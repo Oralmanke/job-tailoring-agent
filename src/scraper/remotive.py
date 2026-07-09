@@ -1,33 +1,39 @@
-import requests
 from src.config import settings
+from src.scraper.base import BaseScraper
 
-#TODO: make parameter that take users title adn pass it to what in get function params. Also with whıch country 
 
-def fetch_remotive():
+class RemotiveScraper(BaseScraper):
+    """Fetch remote jobs from the Remotive API.
 
-    jobs = []
+    Remotive is global, so ``country`` is accepted for a uniform interface but
+    not sent to the API.
+    """
 
-    base_url = "https://remotive.com/api/remote-jobs"
+    source = "remotive"
 
-    resp = requests.get(base_url, params={"search": "ai ml software", "limit": 100}, timeout=10)
-    
-    resp.raise_for_status()
+    def _build_request(self) -> tuple[str, dict]:
+        params = {"search": self.search, "limit": self.limit}
+        return settings.remotive_base_url, params
 
-    data = resp.json()
+    def _iter_raw(self, payload: dict) -> list[dict]:
+        return payload.get("jobs", [])
 
-    for job in data["jobs"]:
-
-        ordered_data = {
-            "title": job.get("title"),
-            "company": job.get("company_name"),
-            "description": job.get("description"),
-            "location": job.get("candidate_required_location"),
-            "url": job.get("url"),
-            "source": "remotive",
-            "created": job.get("publication_date")
+    def normalize(self, raw: dict) -> dict:
+        return {
+            "title": raw.get("title"),
+            "company": raw.get("company_name"),
+            "description": raw.get("description"),
+            "location": raw.get("candidate_required_location"),
+            "url": raw.get("url"),
+            "source": self.source,
+            "created": raw.get("publication_date"),
         }
 
-        jobs.append(ordered_data)
 
-
-    return jobs
+def fetch_remotive(
+    search: str | None = None,
+    country: str | None = None,
+    limit: int | None = None,
+) -> list[dict]:
+    """Convenience wrapper kept for backwards compatibility with the pipeline."""
+    return RemotiveScraper(search=search, country=country, limit=limit).fetch()

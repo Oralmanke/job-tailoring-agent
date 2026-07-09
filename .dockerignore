@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+.env
+output/
+notebooks/
+tests/
+*.egg-info/
