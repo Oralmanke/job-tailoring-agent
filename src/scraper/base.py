@@ -11,11 +11,6 @@ log = get_logger(__name__)
 
 class BaseScraper(ABC):
     """Common contract for every job source.
-
-    Subclasses only describe *where* to fetch from and *how* to map one raw
-    record to our normalized shape. The base class owns the shared concerns:
-    the search/country/limit parameters, the HTTP call (with retry), and the
-    normalization loop.
     """
 
     #: Human-readable source tag stored on each job row.

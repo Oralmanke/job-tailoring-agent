@@ -12,7 +12,9 @@ log = get_logger(__name__)
 
 def tailor_cv(cv_markdown: str, job) -> dict:
     prompt = f"CV (markdown):\n{cv_markdown}\n\nJOB:\n{job.title} at {job.company}\n{job.description}"
-    return parse_json(generate(prompt=prompt,system=CV_RULES))
+    # A full CV as JSON is long; the 1024 default truncates it mid-string and
+    # breaks json parsing, so we allow a larger budget here.
+    return parse_json(generate(prompt=prompt, system=CV_RULES, max_tokens=4096))
 
 def cv_to_text(cv: dict) -> str:
     parts = [cv["professional_summary"]]
@@ -26,7 +28,7 @@ def cv_to_text(cv: dict) -> str:
 
 def write_cover_letter(cv: dict, job) -> dict:
     prompt = f"TAILORED CV:\n{cv_to_text(cv)}\n\nJOB:\n{job.title} at {job.company}\n{job.description}"
-    cl = parse_json(generate(prompt, system=CL_RULES))
+    cl = parse_json(generate(prompt, system=CL_RULES, max_tokens=2048))
     cl.update({                                  
         "candidate_name": cv["candidate_name"], "email": cv["email"],
         "phone": cv["phone"], "location": cv["location"],

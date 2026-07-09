@@ -48,14 +48,18 @@ def generate(prompt: str, system: str, provider: str = None,
     client = get_client(provider)
 
     if provider == "anthropic":
+        # Newer Anthropic models (e.g. claude-sonnet-5) reject the `temperature`
+        # parameter ("temperature is deprecated for this model"), so we don't send
+        # it. `temperature` is still honored on the OpenAI/Ollama path below.
         resp = client.messages.create(
             model=settings.model_name,
             system=system,
             messages=[{"role": "user", "content": prompt}],
             max_tokens=max_tokens,
-            temperature=temperature,
         )
-        return resp.content[0].text
+        # Thinking models (claude-sonnet-5) return reasoning blocks before the
+        # text block, so we can't assume content[0] is text — join every text block.
+        return "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
 
     resp = client.chat.completions.create(
         model=settings.model_name,

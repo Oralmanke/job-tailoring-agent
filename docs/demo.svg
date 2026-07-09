@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="860" height="430" fill="#ffffff"/>
+  <text x="20" y="34" font-size="20" font-weight="600" fill="#1f2328">Job Tailoring Agent — real output</text>
+  <text x="20" y="56" font-size="14" fill="#656d76">Oral's CV, automatically tailored to the best-matching job (cosine score 0.45)</text>
+
+  <!-- Job card -->
+  <rect x="20" y="78" width="390" height="300" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+  <rect x="20" y="78" width="390" height="40" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="38" y="103" font-size="15" font-weight="600" fill="#1f2328">The job</text>
+  <text x="38" y="140" font-size="15" font-weight="600" fill="#1f2328">Solutions Architect</text>
+  <text x="38" y="160" font-size="13" fill="#656d76">NVIDIA Cloud Partners · NVIDIA · Deutschland</text>
+  <text x="38" y="192" font-size="13" fill="#656d76">Wants GPU / accelerated computing, edge</text>
+  <text x="38" y="210" font-size="13" fill="#656d76">deployment and cloud infrastructure skills:</text>
+
+  <rect x="38" y="228" width="64" height="26" rx="13" fill="#ddf4ff"/><text x="70" y="245" font-size="12" fill="#0969da" text-anchor="middle">NVIDIA</text>
+  <rect x="112" y="228" width="56" height="26" rx="13" fill="#ddf4ff"/><text x="140" y="245" font-size="12" fill="#0969da" text-anchor="middle">CUDA</text>
+  <rect x="178" y="228" width="52" height="26" rx="13" fill="#ddf4ff"/><text x="204" y="245" font-size="12" fill="#0969da" text-anchor="middle">GPU</text>
+  <rect x="240" y="228" width="72" height="26" rx="13" fill="#ddf4ff"/><text x="276" y="245" font-size="12" fill="#0969da" text-anchor="middle">Edge AI</text>
+  <rect x="38" y="262" width="66" height="26" rx="13" fill="#ddf4ff"/><text x="71" y="279" font-size="12" fill="#0969da" text-anchor="middle">Docker</text>
+  <rect x="114" y="262" width="56" height="26" rx="13" fill="#ddf4ff"/><text x="142" y="279" font-size="12" fill="#0969da" text-anchor="middle">Linux</text>
+  <rect x="180" y="262" width="70" height="26" rx="13" fill="#ddf4ff"/><text x="215" y="279" font-size="12" fill="#0969da" text-anchor="middle">Cloud</text>
+
+  <text x="38" y="330" font-size="12" fill="#8c959f">Matched against Oral's CV by</text>
+  <text x="38" y="348" font-size="12" fill="#8c959f">sentence-embedding similarity.</text>
+
+  <!-- Arrow -->
+  <text x="420" y="235" font-size="26" fill="#8c959f">→</text>
+
+  <!-- Result card -->
+  <rect x="450" y="78" width="390" height="300" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+  <rect x="450" y="78" width="390" height="40" rx="10" fill="#f0fff4" stroke="#d0d7de"/>
+  <text x="468" y="103" font-size="15" font-weight="600" fill="#1a7f37">Tailored cover letter (excerpt)</text>
+
+  <text x="468" y="140" font-size="12.5" fill="#1f2328">"...I built real-time computer vision models and optimized</text>
+  <text x="468" y="158" font-size="12.5" fill="#1f2328">inference on NVIDIA Jetson Orin using CUDA... I am</text>
+  <text x="468" y="176" font-size="12.5" fill="#1f2328">comfortable with Docker and Linux, which should translate</text>
+  <text x="468" y="194" font-size="12.5" fill="#1f2328">well to supporting cloud partners on infrastructure."</text>
+
+  <text x="468" y="228" font-size="12" font-weight="600" fill="#1a7f37">Emphasised — all taken from Oral's real CV:</text>
+  <rect x="468" y="240" width="56" height="26" rx="13" fill="#dafbe1"/><text x="496" y="257" font-size="12" fill="#1a7f37" text-anchor="middle">CUDA</text>
+  <rect x="534" y="240" width="112" height="26" rx="13" fill="#dafbe1"/><text x="590" y="257" font-size="12" fill="#1a7f37" text-anchor="middle">NVIDIA Jetson</text>
+  <rect x="656" y="240" width="66" height="26" rx="13" fill="#dafbe1"/><text x="689" y="257" font-size="12" fill="#1a7f37" text-anchor="middle">Docker</text>
+  <rect x="468" y="274" width="54" height="26" rx="13" fill="#dafbe1"/><text x="495" y="291" font-size="12" fill="#1a7f37" text-anchor="middle">Linux</text>
+  <rect x="532" y="274" width="92" height="26" rx="13" fill="#dafbe1"/><text x="578" y="291" font-size="12" fill="#1a7f37" text-anchor="middle">TensorFlow</text>
+  <rect x="634" y="274" width="52" height="26" rx="13" fill="#dafbe1"/><text x="660" y="291" font-size="12" fill="#1a7f37" text-anchor="middle">YOLO</text>
+
+  <text x="468" y="332" font-size="12" fill="#8c959f">Generated with claude-sonnet-5, rendered</text>
+  <text x="468" y="350" font-size="12" fill="#8c959f">to a .docx from a Word template.</text>
+
+  <!-- Footer verification bar -->
+  <rect x="20" y="392" width="820" height="30" rx="8" fill="#dafbe1"/>
+  <text x="34" y="412" font-size="13" fill="#1a7f37">✓ Every highlighted claim is fact-checked against the real CV before the file is written — nothing invented.</text>
+</svg>

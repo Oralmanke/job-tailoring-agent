@@ -5,9 +5,6 @@ from src.config import settings
 
 def skills_from_cv(cv:dict) -> set[str]:
     terms = set()
-    # .get(...) yerine köşeli parantez kullansaydık, CV'de "technical_skills"
-    # anahtarı hiç yoksa KeyError ile çökerdik. .get ile yoksa boş sözlük varsayıp
-    # boş küme döndürüyoruz (evaluate bu durumda coverage kapısını atlıyor).
     for skilss_str in cv.get("technical_skills", {}).values():
         for skill in skilss_str.split(","):
             cleaned = skill.strip().lower()

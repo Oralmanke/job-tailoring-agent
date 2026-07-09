@@ -80,9 +80,15 @@ def list_jobs(
         # ilike = case-insensitive LIKE; %...% = "contains".
         query = query.filter(Job.location.ilike(f"%{location}%"))
     if remote:
+        # Remotive is a remote-only board, so every job from it counts as remote
+        # even when its location text says "Worldwide"/"USA"/"Europe" instead of
+        # the literal word "remote". We also catch remote wording from any source.
         query = query.filter(
             or_(
+                Job.source == "remotive",
                 Job.location.ilike("%remote%"),
+                Job.location.ilike("%worldwide%"),
+                Job.location.ilike("%anywhere%"),
                 Job.description.ilike("%remote%"),
             )
         )

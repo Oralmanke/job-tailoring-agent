@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="340" viewBox="0 0 860 340" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="860" height="340" fill="#ffffff"/>
+  <text x="20" y="30" font-size="18" font-weight="600" fill="#1f2328">What "tailoring" actually changes — the professional summary</text>
+
+  <!-- Before -->
+  <rect x="20" y="50" width="820" height="110" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="36" y="74" font-size="13" font-weight="600" fill="#656d76">BEFORE · original CV</text>
+  <text x="36" y="98" font-size="13" fill="#57606a">Computer Engineering M.Sc. student and AI Engineer specializing in computer vision and edge deployment.</text>
+  <text x="36" y="118" font-size="13" fill="#57606a">Experienced in using CUDA to run real-time inference on NVIDIA Jetson, and in training object detection</text>
+  <text x="36" y="138" font-size="13" fill="#57606a">models with YOLO and TensorFlow. Builds end-to-end pipelines covering preparation, training and deployment.</text>
+
+  <!-- After -->
+  <rect x="20" y="176" width="820" height="140" rx="10" fill="#f0fff4" stroke="#a6e5b8"/>
+  <text x="36" y="200" font-size="13" font-weight="600" fill="#1a7f37">AFTER · tailored for the NVIDIA Solutions Architect role  (green = added / re-emphasised, still fact-checked)</text>
+  <text x="36" y="226" font-size="13" fill="#1f2328">Computer Engineering M.Sc. student and AI Engineer with <tspan fill="#1a7f37" font-weight="600">hands-on experience deploying GPU-</tspan></text>
+  <text x="36" y="246" font-size="13" fill="#1f2328"><tspan fill="#1a7f37" font-weight="600">accelerated</tspan> computer vision solutions using <tspan fill="#1a7f37" font-weight="600">NVIDIA CUDA and NVIDIA Jetson edge hardware</tspan>. Skilled in</text>
+  <text x="36" y="266" font-size="13" fill="#1f2328">building end-to-end <tspan fill="#1a7f37" font-weight="600">deep learning</tspan> pipelines, with a <tspan fill="#1a7f37" font-weight="600">strong foundation in optimization, real-time</tspan></text>
+  <text x="36" y="286" font-size="13" fill="#1f2328"><tspan fill="#1a7f37" font-weight="600">inference, and cloud-ready infrastructure tools such as Docker and Linux</tspan>.</text>
+</svg>

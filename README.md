@@ -147,4 +147,28 @@ through the code.
 
 ## Demo
 
-> _TODO: add a short GIF walking through `/docs` → `POST /tailor` → `/download`._
+A real run: the agent matched a CV against the scraped jobs, picked the
+best-fitting one (an NVIDIA Solutions Architect role) by embedding similarity,
+and generated a cover letter and CV tailored to it with `claude-sonnet-5`.
+
+![Tailored cover letter for the best-matching job](docs/demo.svg)
+
+Tailoring rewrites the content to foreground what the job asks for. Green marks
+what was added or re-emphasised — every phrase is still drawn from, and
+fact-checked against, the real CV:
+
+![Before and after of the professional summary](docs/demo_summary.svg)
+
+## Future works
+
+- **Web front-end.** Today the only interface is the auto-generated Swagger UI
+  at `/docs`. A small React (or plain HTML/JS) site would let a user browse
+  jobs, click "tailor", watch progress, and download — all without touching the
+  raw API. The backend is already API-first, so this is additive.
+- **Per-user isolation.** Tailoring status is keyed by job id in memory; a
+  multi-user site needs per-user task ids (UUID) and auth so two people can
+  tailor the same job without colliding.
+- **Multi-country ingest.** `/ingest` fetches one Adzuna country per call;
+  accept a list (`countries=uk,de,fr`) to pull several at once.
+- **Reranking / self-correction.** Re-rank matches with an LLM, or retry
+  generation when the fact-check fails instead of rejecting outright.
