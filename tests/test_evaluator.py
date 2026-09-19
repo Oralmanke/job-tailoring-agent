@@ -49,7 +49,7 @@ def test_evaluate_skips_coverage_when_no_skills(monkeypatch):
 
     monkeypatch.setattr(evaluator, "judge", fake_judge)
 
-    job = SimpleNamespace(title="ML Engineer", description="build models")
+    job = SimpleNamespace(title="ML Engineer", company="Acme", description="build models")
     report = evaluator.evaluate("source", "unrelated text", job, skills=set())
 
     assert called["judge"] is True          # went straight to the judge

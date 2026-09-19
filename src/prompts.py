@@ -22,6 +22,7 @@ A claim is a specific skill, tool, technology, job title, company, number, date,
 
 Rules:
 - Rephrasing or summarizing SOURCE content is ALLOWED. Only flag genuinely new, unsupported facts.
+- Naming the TARGET JOB (its title or company) as the role being applied for is ALLOWED; it is not a claim about the candidate's history.
 - A claim is "unsupported" only if SOURCE neither states it nor clearly implies it.
 - Do not flag general/soft language (e.g. "passionate", "team player") — only concrete, checkable claims.
 - If GENERATED is fully supported, "consistent" is true and "issues" is an empty list.

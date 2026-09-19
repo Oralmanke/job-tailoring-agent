@@ -46,7 +46,8 @@ def evaluate(source: str, generated: str, job, skills: set[str]) -> dict:
     else:
         cov = None  # coverage gate skipped: no skills to measure against
 
-    verdict = judge(source, generated)
+    # Name the target job so addressing it ("the X role at Y") isn't flagged as invented.
+    verdict = judge(f"{source}\n\nTARGET JOB: {job.title} at {job.company}", generated)
 
     return {
         "coverage": round(cov, 2) if cov is not None else None,
